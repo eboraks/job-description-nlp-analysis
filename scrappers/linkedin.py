@@ -1,3 +1,4 @@
+from typing import Counter
 from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException
 from selenium import webdriver
 import time
@@ -23,8 +24,8 @@ def login(driver):
     query = "https://www.linkedin.com/login"
 
     driver.get(query)
-    driver.find_element_by_id("username").send_keys("eboraks@gmail.com")
-    driver.find_element_by_id("password").send_keys("Case2214%")
+    driver.find_element_by_id("username").send_keys("")
+    driver.find_element_by_id("password").send_keys("")
     
     print("Sleeping for 10 sec")
     time.sleep(10)
@@ -43,7 +44,9 @@ def login(driver):
 
 def get_job_description(driver, link):
 
-    #driver.find_element_by_css_selector("div.jobs-box__html-content").text
+    driver.get(link)
+    time.sleep(10)
+    return driver.find_element_by_css_selector("div.jobs-box__html-content").text
 
 def find_jobs(driver, job_title, location):
 
@@ -51,13 +54,31 @@ def find_jobs(driver, job_title, location):
 
     driver.get(query)
 
+    time.sleep(20)
     jobs = driver.find_elements_by_css_selector("a.job-card-list__title")
 
+    print("number of jobs found " + str(len(jobs)))    
+    results = []
+    counter = 0
     for job in jobs:
-        text = job.text
+        counter += 1 
+        time.sleep(2)
+        subject = job.text
         link = job.get_attribute("href")
-        driver.get(link)
-        print("job page")
+        results.append(
+            {"subject": subject, 
+            "url": link}
+        )
+        if(counter > 10):
+            break
+    
+    for job in results:
+        job_desc = get_job_description(driver, job["url"])
+        job["job_desc"] = job_desc
+    
+    
+    
+    return results
 
 
 
@@ -65,7 +86,10 @@ def main():
     path = "/Users/eliranboraks/projects/bin/chromedriver"
     driver = get_driver(path)
     login(driver)
-    find_jobs(driver, "product manager", "Boston")
+    jobs = find_jobs(driver, "product manager", "Boston")
+
+    df = pd.DataFrame(jobs).reset_index()
+    df.to_csv('data/linkedin_jobs.csv', index=False)
 
 if(__name__ == "__main__"):
     main()
