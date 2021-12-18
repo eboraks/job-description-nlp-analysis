@@ -1,0 +1,28 @@
+soft_skills
+
+
+
+* hard_skills
+
+requirements documents
+
+Bachelor's degree in related field required
+Minimum 10+ years of IT implementation or consulting experience
+Minimum 6 years Solution Design, Technical design, end-to-end architecting with SAP systems. Experience in the Azure platform is preferred.
+demonstrate a strong understanding
+Excellent written and oral communication skills
+Excellent interpersonal skills
+
+4-year degree (Computer Science, Information Systems, or relational functional field) and/or equivalent combination of education or work experience
+10+ years of programming experience Java, J2EE, Spring boot and Web Services Technologies, SOAP and/or REST). Experience in Java 8 or 11, with Spring Webflux and Reactive is strongly preferred.
+5+ years of hands-on experience with designing and building microservices using REST and GraphQL. Experience with API Management in public cloud is strongly preferred.
+5+ years of hands-on experience in variety of database technologies, including No SQL (such as MongoDB, Cassandra) and RDBMS (such as ORACLE, SQL Server), including experience with DML, DDL and Query Optimization.
+
+Proficient programming experience using SAS/Python/R.
+5 or more years of relevant work experience.
+Conduct exploratory data analysis from complex
+Generate hypotheses and analyze data to test and interpret results
+Design and develop data models to predict member outcomes
+Identify and create new data resources from disparate sources to enable reporting
+tools and languages including SQL, Python, R, and Alteryx
+Prepare documentation, reports, and visualizations
