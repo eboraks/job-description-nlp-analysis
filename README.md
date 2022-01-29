@@ -20,7 +20,7 @@ patterns.append([{"POS":"NOUN"}, {"POS": {"IN": ["ADP", "ADJ"]}, "OP": "?"}, {"P
 patterns.append([{"POS":"NOUN"}, {"POS": "VERB", "OP": "+"}, {"POS":"PROPN", "OP": "+"}])
 patterns.append([{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "CCONJ"}, {"POS": {"IN": ["ADP", "ADJ"]}, "OP": "+"}, {"POS": "CCONJ"}, {"POS":"VERB"}])
 ``` 
-[code: extract_phrases.py](src/experience_data_prep/extract_phrases.py)  or [VERB NOUN Phrases Extractor Notebook](notebooks/VERB_NOUN_Phrase_Extractor.ipynb)
+[code: extract_phrases.py](src/experience_data_prep/extract_phrases.py)  or [VERB NOUN Phrases Extractor Notebook](notebook/VERB_NOUN_Phrase_Extractor.ipynb)
 
 The patterns extract pretty good results, but the results also include phrases that don't describe soft skills, so the next step is to separate the wheat from the chaff. 
 
