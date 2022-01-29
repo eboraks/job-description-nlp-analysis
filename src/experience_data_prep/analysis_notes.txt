@@ -1,0 +1,235 @@
+build
+/Users/eliranboraks/projects/job-description-nlp-analysis/data/experience_sent_related_to_build.html
+/Users/eliranboraks/projects/job-description-nlp-analysis/data/experience_sent_related_to_building.html
+- build seems to be too general verb. Maybe it can be useful to capture PROPN following "build CRM, Databases"
+- Build and building can be use is variaty of contexts - build technology, build team, build relationshiop with customers...
+
+
+
+builder
+/Users/eliranboraks/projects/job-description-nlp-analysis/data/experience_sent_related_to_builder.html
+- Captureing the previouis nouns seems like a good idea. 
+technology NOUN
+solutions NOUN
+builder NOUN
+
+
+coach 
+/Users/eliranboraks/projects/job-description-nlp-analysis/data/experience_sent_related_to_building.html
+- coach is good to identify folloing nouns
+coach NOUN
+mentor NOUN
+team NOUN
+members NOUN
+
+collaborate
+/Users/eliranboraks/projects/job-description-nlp-analysis/data/experience_sent_related_to_collaborate.html
+collaborate VERB
+senior ADJ
+leaders NOUN
+product NOUN
+managers NOUN
+
+collaborate VERB
+with ADP
+other ADJ
+architect NOUN
+technical ADJ
+subject NOUN
+matter NOUN
+
+
+collaboration and collaborative - hard to find repeatable patterns
+
+
+
+
+communicate
+
+actively ADV
+communicates VERB
+with ADP
+your PRON
+leadership NOUN
+and CCONJ
+team NOUN
+members NOUN
+
+define 
+
+Example 1. 
+defining VERB
+technical ADJ
+solutions NOUN
+
+Example 2. 
+define VERB
+solutions NOUN
+from ADP
+very ADV
+high ADJ
+level NOUN
+business NOUN
+ideas NOUN
+
+Example 3. 
+defining VERB
+technical ADJ
+solutions NOUN
+
+Example 4. 
+define VERB
+cloud NOUN
+strategy NOUN
+
+
+
+work 
+Example 1. 
+work VERB
+independently ADV
+
+Example 2. 
+work VERB
+collaboratively ADV
+across ADP
+the DET
+IT PROPN
+organization NOUN
+
+
+---------------- design -----------------
+
+Example 1.
+solution NOUN
+architecture NOUN
+and CCONJ
+design NOUN
+
+Example 2. 
+designing VERB
+and CCONJ
+building NOUN
+microservices NOUN
+using VERB
+REST NOUN
+
+
+---------------- develop ----------------
+
+There is a lot of variation with "develop" and it's hard to generalized around it. 
+
+---------------- drive ------------------
+
+Example 1. 
+drive VERB
+design NOUN
+and CCONJ
+technical ADJ
+implementation NOUN
+and CCONJ
+architect VERB
+
+Example 2. 
+drive VERB
+highly ADV
+complex ADJ
+technology NOUN
+solutions NOUN
+
+Examples 3. Finding trigram
+
+technology NOUN
+- npadvmod
+driven VERB
+- amod
+future NOUN
+
+data NOUN
+- npadvmod
+driven VERB
+- amod
+solutions NOUN
+
+
+---------------- experince --------------
+Example 1. 
+experience NOUN
+defining VERB
+architectural ADJ
+direction NOUN
+harnessing VERB
+innovation NOUN
+
+Example 2. 
+
+Experience NOUN
+designing VERB
+aspects NOUN
+Cloud PROPN
+Infrastructure PROPN
+Architecture PROPN
+
+Example 3. 
+Experience NOUN
+developing NOUN
+communicating NOUN
+implementing VERB
+end NOUN
+to PART
+end VERB
+ERP PROPN
+solutions NOUN
+involving VERB
+
+--------------- effectively ------------
+Example 1. 
+effectively ADV
+resolve VERB
+technical ADJ
+issues NOUN
+using VERB
+practical ADJ
+imaginative ADJ
+methods NOUN
+
+---------------- excellent ---------------
+excellent ADJ
+client NOUN
+services NOUN
+
+--------------- expertise ----------------
+expertise NOUN
+with ADP
+architecture NOUN
+design NOUN
+
+
+--------------- manage    ----------------
+
+Manage VERB
+Technical ADJ
+architecture NOUN
+analysis NOUN
+research NOUN
+design NOUN
+development NOUN
+
+
+--------------- make --------------------
+
+Makes VERB
+high ADJ
+level NOUN
+design NOUN
+choices NOUN
+
+
+-------------- skills --------------------
+file:///Users/eliranboraks/projects/job-description-nlp-analysis/data/experience_sent_related_to_drive.html
+
+Exceptional ADJ
+analytical ADJ
+and CCONJ
+quantitative ADJ
+skills NOUN
