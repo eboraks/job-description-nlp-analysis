@@ -40,7 +40,7 @@ incorporate key technologies
 Note: * represent chaff phrases that don't represent skills
 ```
 
-This is what I am working on these days. I am experimenting with different clustering algorithms to group phrase vectors to identify soft skills. [Vectorize and Cluster Phrases Notebook](notebook/Vectorize_and_Cluster_Phrases.ipynb)
+These days I am experimenting with different clustering algorithms to group cluster phrases's vectors to separate the what (skill phrase) from the chaff (unrelated to skills phrases). [Vectorize and Cluster Phrases Notebook](notebook/Vectorize_and_Cluster_Phrases.ipynb)
 
 
 
