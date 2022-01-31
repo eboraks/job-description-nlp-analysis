@@ -81,8 +81,9 @@ def main():
         phrases = extract_phrases(job_descriptions)
         log.info("Found %s phrases in %s", str(len(phrases)), file)
         df = df.append(pd.DataFrame(phrases, columns=["Phrases"]), ignore_index=True)
+        df = df.drop_duplicates(subset=["Phrases"])
     
-    df.to_csv("data/verb_noun_phrases.csv")
+    df.to_csv("data/verb_noun_phrases.csv", index=False)
 
     
 
