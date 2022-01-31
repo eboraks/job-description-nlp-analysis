@@ -24,6 +24,22 @@ patterns.append([{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "CCONJ"}, {"POS": {"I
 
 The patterns extract pretty good results, but the results also include phrases that don't describe soft skills, so the next step is to separate the wheat from the chaff. 
 
+```
+Experience developing product roadmaps
+developing new capabilities
+vaccinated against COVID-19 *
+protected by law * 
+develop creative solutions
+plans into phased actions *
+build new capabilities
+overcome complex systems integration challenges
+power of emerging technologies
+principles to developing marketing technology solutions
+incorporate key technologies
+
+Note: * represent chaff phrases that don't represent skills
+```
+
 This is what I am working on these days. I am experimenting with different clustering algorithms to group phrase vectors to identify soft skills. [Vectorize and Cluster Phrases Notebook](notebook/Vectorize_and_Cluster_Phrases.ipynb)
 
 
