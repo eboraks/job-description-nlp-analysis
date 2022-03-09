@@ -82,7 +82,7 @@ def get_job_description(driver, link):
 
     return text
 
-def find_jobs(driver, job_page_link):
+def find_jobs(driver, job_page_link) -> list:
 
     driver.get(job_page_link)
     time.sleep(2)
@@ -123,9 +123,14 @@ def main():
     driver = get_driver(path)
     
     jobs_title = [
-        #{"name": "dice_product_management", "link": "https://www.dice.com/jobs/q-Product+management-jobs"},
-        {"name": "dice_data_scientist", "link": "https://www.dice.com/jobs/q-Data+Scientist-jobs"},
-        {"name": "dice_solution_architect", "link": "https://www.dice.com/jobs/q-Solution+Architect-jobs"}
+        {"name": "dice_product_management", "link": "https://www.dice.com/jobs/q-Product+management-jobs?p={}"},
+        {"name": "dice_data_scientist", "link": "https://www.dice.com/jobs/q-Data+Scientist-jobs?p={}"},
+        {"name": "dice_solution_architect", "link": "https://www.dice.com/jobs/q-Solution+Architect-jobs?p={}"},
+        {"name": "dice_project_management", "link": "https://www.dice.com/jobs/q-Project+management-jobs?p={}"},
+        {"name": "dice_engineering_management", "link": "https://www.dice.com/jobs/q-Engineering+management-jobs?p={}"},
+        {"name": "dice_business_process_management", "link": "https://www.dice.com/jobs/q-Business+process+management-jobs?p={}"},
+        {"name": "dice_business_development", "link": "https://www.dice.com/jobs/q-Business+development-jobs?p={}"}
+
     ]
 
     for item in jobs_title:
@@ -136,7 +141,11 @@ def main():
         now = datetime.now().isoformat()
         now = re.sub("\.\d{6}", "", now)
 
-        jobs = find_jobs(driver, jobs_page)
+        jobs = []
+        for pnum in range(1,4):
+            page = jobs_page.format(pnum)
+            jobs.extend(find_jobs(driver, page))
+        
         df = pd.DataFrame(jobs).reset_index()
 
         file = "data/" + search_name + "_" + now + ".csv"

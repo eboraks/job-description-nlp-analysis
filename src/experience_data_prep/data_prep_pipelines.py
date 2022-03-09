@@ -1,12 +1,19 @@
+from statistics import median_grouped
+from tkinter import N
 import spacy
 import logging as log
 from spacy.tokens import DocBin
 import pandas as pd
 import nltk
+from nltk.stem import PorterStemmer
 import sys, os, glob
 import logging as log
+import textacy
 
+from collections import defaultdict
 from experience_data_prep.extract_phrases import extract_phrases
+from text_util import remove_stop_words, divid_to_ngrams
+
 
 
 log.basicConfig(level=log.INFO)
@@ -68,16 +75,45 @@ def annotate_data(path) -> list:
     
     return docs
 
-
-def main():
-    # DataFrame to store the extracted phrases results
-    df = pd.DataFrame(columns=["Phrases"])
+def extract_ngrams_pipe(num: int = 2, min_frequency: int = 1):
+    
+    ngrams_dict = defaultdict(int)
 
     # Read the job descriptions
     for file in glob.glob("data/dice*.csv"):
         log.info("Reading file %s", file)
         lnkjobs = pd.read_csv(file)
+        nlp_job_descriptions = [nlp(jd) for jd in lnkjobs ["job_desc"]]
+        for desc in nlp_job_descriptions:
+            ngrams = textacy.extract.basics.ngrams(desc, num, min_freq = min_frequency)
+            for ng in ngrams:
+                ngrams_dict[ng.text.lower()] += 1
+    
+    df = pd.DataFrame.from_dict(ngrams_dict, orient='index')
+    filename = "data/ngrams_{}_from_job_description.csv".format(num) 
+    log.info("Writing file %s", filename)
+    df.to_csv(filename, index=True)
+        
+    
+
+
+
+def extract_phrases_pipe():
+    # DataFrame to store the extracted phrases results
+    df = pd.DataFrame(columns=["Phrases"])
+
+    # Read the job descriptions
+    for file in glob.glob("data/dice*.csv"):
+        
+        # TODO extract job title from file
+        log.info("Reading file %s", file)
+        lnkjobs = pd.read_csv(file)
         job_descriptions = [jd for jd in lnkjobs ["job_desc"]]
+
+        # TODO divid job description into 
+
+        ## porter = PorterStemmer() , porter.stem("troubling")
+        
         phrases = extract_phrases(job_descriptions)
         log.info("Found %s phrases in %s", str(len(phrases)), file)
         df = df.append(pd.DataFrame(phrases, columns=["Phrases"]), ignore_index=True)
@@ -88,4 +124,4 @@ def main():
     
 
 if __name__ == '__main__':
-    sys.exit(main())
+    sys.exit(extract_ngrams_pipe(num=4, min_frequency=1))
